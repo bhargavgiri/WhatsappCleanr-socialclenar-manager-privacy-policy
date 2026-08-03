@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Social Cleaner</title>
+  <meta name="description" content="Social Cleaner privacy policy and permissions disclosure. Learn how we handle your data, what permissions we use, and how ads work in the app." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Privacy Policy — Social Cleaner" />
+  <meta property="og:description" content="Transparent privacy policy for Social Cleaner Android app." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ─── DESIGN TOKENS ─────────────────────────────── */
+    :root {
+      --font-display: 'Poppins', sans-serif;
+      --font-body: 'Inter', sans-serif;
+
+      --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+      --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+      --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+      --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+      --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+      --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+      --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
+
+      --space-1:  0.25rem;
+      --space-2:  0.5rem;
+      --space-3:  0.75rem;
+      --space-4:  1rem;
+      --space-5:  1.25rem;
+      --space-6:  1.5rem;
+      --space-8:  2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --space-24: 6rem;
+
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --radius-xl: 1rem;
+      --radius-2xl: 1.5rem;
+      --radius-full: 9999px;
+
+      --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+
+      --content-narrow: 640px;
+      --content-default: 960px;
+      --content-wide: 1200px;
+    }
+
+    /* ─── CUSTOM DARK PALETTE ────────────────────────── */
+    :root, [data-theme="dark"] {
+      --color-bg:              #0F172A;
+      --color-surface:         #131e35;
+      --color-surface-2:       #172240;
+      --color-surface-offset:  #1e2d4f;
+      --color-surface-glass:   rgba(19,30,53,0.7);
+      --color-divider:         rgba(248,250,252,0.08);
+      --color-border:          rgba(248,250,252,0.12);
+
+      --color-text:            #F8FAFC;
+      --color-text-muted:      #94A3B8;
+      --color-text-faint:      #475569;
+
+      --color-primary:         #2563EB;
+      --color-primary-hover:   #1d4ed8;
+      --color-primary-glow:    rgba(37,99,235,0.25);
+
+      --color-accent:          #8B5CF6;
+      --color-accent-hover:    #7c3aed;
+      --color-accent-glow:     rgba(139,92,246,0.25);
+
+      --color-cyan:            #06B6D4;
+      --color-cyan-glow:       rgba(6,182,212,0.2);
+
+      --color-success:         #10B981;
+      --color-warning:         #F59E0B;
+      --color-error:           #EF4444;
+
+      --shadow-sm:  0 1px 3px rgba(0,0,0,0.4);
+      --shadow-md:  0 4px 16px rgba(0,0,0,0.5);
+      --shadow-lg:  0 12px 40px rgba(0,0,0,0.6);
+      --shadow-glow-blue:   0 0 32px rgba(37,99,235,0.3);
+      --shadow-glow-purple: 0 0 32px rgba(139,92,246,0.3);
+    }
+
+    /* ─── BASE RESET ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+    body {
+      min-height: 100dvh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--color-text);
+      background-color: var(--color-bg);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    h1,h2,h3,h4 { font-family: var(--font-display); text-wrap: balance; line-height: 1.2; }
+    p, li { text-wrap: pretty; max-width: 72ch; }
+    a { color: var(--color-cyan); text-decoration: none; transition: color var(--transition-interactive); }
+    a:hover { color: var(--color-text); }
+    button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+    :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+
+    /* ─── UTILITY ────────────────────────────────────── */
+    .container { max-width: var(--content-default); margin-inline: auto; padding-inline: clamp(var(--space-4), 4vw, var(--space-8)); }
+    .container--wide { max-width: var(--content-wide); margin-inline: auto; padding-inline: clamp(var(--space-4), 4vw, var(--space-8)); }
+    .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-cyan);
+      margin-bottom: var(--space-4);
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--color-cyan);
+      border-radius: var(--radius-full);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 50%, var(--color-cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ─── SCROLL REVEAL ──────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ─── NOISE OVERLAY ──────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+      opacity: 0.4;
+    }
+
+    /* ─── NAV ────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(20px) saturate(1.5);
+      -webkit-backdrop-filter: blur(20px) saturate(1.5);
+      border-bottom: 1px solid var(--color-divider);
+      transition: background var(--transition-interactive), box-shadow var(--transition-interactive);
+    }
+    .nav.scrolled {
+      background: rgba(15, 23, 42, 0.95);
+      box-shadow: 0 1px 0 var(--color-divider), var(--shadow-sm);
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: var(--text-base);
+      color: var(--color-text);
+    }
+    .nav__logo svg { flex-shrink: 0; }
+    .nav__badge {
+      font-size: var(--text-xs);
+      font-weight: 500;
+      padding: 2px var(--space-2);
+      border-radius: var(--radius-full);
+      background: color-mix(in oklch, var(--color-primary) 20%, transparent);
+      color: var(--color-primary);
+      border: 1px solid color-mix(in oklch, var(--color-primary) 40%, transparent);
+    }
+    .nav__updated {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .nav__updated::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-success);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    /* ─── HERO ───────────────────────────────────────── */
+    .hero {
+      position: relative;
+      padding-top: clamp(120px, 15vw, 160px);
+      padding-bottom: clamp(var(--space-16), 8vw, var(--space-24));
+      overflow: hidden;
+      text-align: center;
+    }
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+    }
+    .hero__orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .hero__orb--blue {
+      width: clamp(300px, 50vw, 600px);
+      height: clamp(300px, 50vw, 600px);
+      background: radial-gradient(circle, rgba(37,99,235,0.18) 0%, transparent 70%);
+      top: -10%;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: drift-blue 8s ease-in-out infinite alternate;
+    }
+    .hero__orb--purple {
+      width: clamp(200px, 35vw, 500px);
+      height: clamp(200px, 35vw, 500px);
+      background: radial-gradient(circle, rgba(139,92,246,0.15) 0%, transparent 70%);
+      top: 20%;
+      right: 5%;
+      animation: drift-purple 10s ease-in-out infinite alternate;
+    }
+    .hero__orb--cyan {
+      width: clamp(150px, 25vw, 350px);
+      height: clamp(150px, 25vw, 350px);
+      background: radial-gradient(circle, rgba(6,182,212,0.12) 0%, transparent 70%);
+      bottom: 0;
+      left: 5%;
+      animation: drift-cyan 12s ease-in-out infinite alternate;
+    }
+    @keyframes drift-blue { from { transform: translateX(-50%) translateY(0); } to { transform: translateX(-50%) translateY(-30px); } }
+    @keyframes drift-purple { from { transform: translateY(0) scale(1); } to { transform: translateY(-20px) scale(1.05); } }
+    @keyframes drift-cyan { from { transform: translateY(0) scale(1); } to { transform: translateY(-15px) scale(0.95); } }
+
+    .hero__grid-lines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(248,250,252,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(248,250,252,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 70%);
+    }
+
+    .hero__icon-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      border-radius: var(--radius-2xl);
+      background: linear-gradient(135deg, var(--color-surface-offset) 0%, var(--color-surface-2) 100%);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-lg), 0 0 48px rgba(37,99,235,0.2);
+      margin-bottom: var(--space-8);
+      animation: float-icon 4s ease-in-out infinite;
+    }
+    @keyframes float-icon {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-cyan);
+      background: color-mix(in oklch, var(--color-cyan) 12%, transparent);
+      border: 1px solid color-mix(in oklch, var(--color-cyan) 30%, transparent);
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-6);
+    }
+
+    .hero__title {
+      font-size: var(--text-3xl);
+      font-weight: 700;
+      margin-bottom: var(--space-6);
+      letter-spacing: -0.02em;
+    }
+
+    .hero__subtitle {
+      font-size: var(--text-lg);
+      color: var(--color-text-muted);
+      max-width: 56ch;
+      margin-inline: auto;
+      margin-bottom: var(--space-10);
+      line-height: 1.7;
+    }
+
+    .hero__meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+    }
+    .hero__meta-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
+    .hero__meta-item svg { color: var(--color-cyan); }
+
+    /* ─── SECTIONS ───────────────────────────────────── */
+    .section {
+      position: relative;
+      padding-block: clamp(var(--space-12), 8vw, var(--space-20));
+    }
+    .section--alt {
+      background: linear-gradient(180deg, transparent 0%, rgba(19,30,53,0.5) 50%, transparent 100%);
+    }
+    .section__header {
+      margin-bottom: clamp(var(--space-10), 5vw, var(--space-16));
+    }
+    .section__title {
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-4);
+    }
+    .section__desc {
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      max-width: 60ch;
+      line-height: 1.7;
+    }
+
+    /* ─── GLASS CARD ─────────────────────────────────── */
+    .glass-card {
+      background: var(--color-surface-glass);
+      backdrop-filter: blur(16px) saturate(1.2);
+      -webkit-backdrop-filter: blur(16px) saturate(1.2);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-2xl);
+      padding: clamp(var(--space-6), 3vw, var(--space-10));
+      box-shadow: var(--shadow-md);
+    }
+    .glass-card--glow-blue { box-shadow: var(--shadow-md), 0 0 40px rgba(37,99,235,0.1); }
+    .glass-card--glow-purple { box-shadow: var(--shadow-md), 0 0 40px rgba(139,92,246,0.1); }
+    .glass-card--glow-cyan { box-shadow: var(--shadow-md), 0 0 40px rgba(6,182,212,0.1); }
+
+    /* ─── ABOUT APP ──────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+      gap: var(--space-5);
+    }
+    .about-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+      padding: var(--space-6);
+      background: var(--color-surface);
+      border: 1px solid var(--color-divider);
+      border-radius: var(--radius-xl);
+      transition: border-color var(--transition-interactive), transform var(--transition-interactive), box-shadow var(--transition-interactive);
+    }
+    .about-feature:hover {
+      border-color: color-mix(in oklch, var(--color-primary) 50%, transparent);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md), 0 0 20px rgba(37,99,235,0.08);
+    }
+    .about-feature__icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-feature__text h3 {
+      font-size: var(--text-base);
+      font-weight: 600;
+      font-family: var(--font-display);
+      margin-bottom: var(--space-1);
+    }
+    .about-feature__text p {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* ─── PERMISSION CARDS ───────────────────────────── */
+    .perm-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+      gap: var(--space-6);
+    }
+    .perm-card {
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+      background: var(--color-surface);
+      border: 1px solid var(--color-divider);
+      transition: border-color var(--transition-interactive), transform var(--transition-interactive), box-shadow var(--transition-interactive);
+    }
+    .perm-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+    .perm-card__header {
+      padding: var(--space-6) var(--space-6) var(--space-4);
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .perm-card__icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-xl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .perm-card__title {
+      font-size: var(--text-base);
+      font-weight: 700;
+      font-family: var(--font-display);
+    }
+    .perm-card__subtitle {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: 2px;
+    }
+    .perm-card__body { padding: var(--space-5) var(--space-6) var(--space-6); }
+    .perm-card__desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: var(--space-5);
+    }
+    .perm-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); }
+    .perm-list li {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
+    .perm-list li::before {
+      content: '';
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background-size: 10px 10px;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .perm-list--allow li::before {
+      background-color: color-mix(in oklch, var(--color-success) 20%, transparent);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2310B981' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+    }
+    .perm-list--deny li::before {
+      background-color: color-mix(in oklch, var(--color-error) 20%, transparent);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23EF4444' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'/%3E%3Cline x1='6' y1='6' x2='18' y2='18'/%3E%3C/svg%3E");
+    }
+
+    .perm-card--blue .perm-card__icon-wrap { background: color-mix(in oklch, var(--color-primary) 20%, transparent); }
+    .perm-card--blue .perm-card__title { color: var(--color-primary); }
+    .perm-card--blue:hover { border-color: color-mix(in oklch, var(--color-primary) 50%, transparent); box-shadow: var(--shadow-lg), 0 0 30px rgba(37,99,235,0.15); }
+
+    .perm-card--purple .perm-card__icon-wrap { background: color-mix(in oklch, var(--color-accent) 20%, transparent); }
+    .perm-card--purple .perm-card__title { color: var(--color-accent); }
+    .perm-card--purple:hover { border-color: color-mix(in oklch, var(--color-accent) 50%, transparent); box-shadow: var(--shadow-lg), 0 0 30px rgba(139,92,246,0.15); }
+
+    .perm-card--cyan .perm-card__icon-wrap { background: color-mix(in oklch, var(--color-cyan) 20%, transparent); }
+    .perm-card--cyan .perm-card__title { color: var(--color-cyan); }
+    .perm-card--cyan:hover { border-color: color-mix(in oklch, var(--color-cyan) 50%, transparent); box-shadow: var(--shadow-lg), 0 0 30px rgba(6,182,212,0.15); }
+
+    /* ─── SDK ROW ─────────────────────────────────────── */
+    .sdk-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+      gap: var(--space-5);
+      margin-top: var(--space-8);
+    }
+    .sdk-card {
+      padding: var(--space-6);
+      background: var(--color-surface);
+      border: 1px solid var(--color-divider);
+      border-radius: var(--radius-xl);
+      display: flex;
+      align-items: center;
+      gap: var(--space-5);
+      transition: border-color var(--transition-interactive), transform var(--transition-interactive);
+    }
+    .sdk-card:hover { border-color: color-mix(in oklch, var(--color-accent) 40%, transparent); transform: translateY(-2px); }
+    .sdk-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 22px;
+    }
+    .sdk-card__name {
+      font-size: var(--text-base);
+      font-weight: 600;
+      font-family: var(--font-display);
+      margin-bottom: 2px;
+    }
+    .sdk-card__desc { font-size: var(--text-xs); color: var(--color-text-muted); line-height: 1.5; }
+
+    /* ─── DATA SAFETY ────────────────────────────────── */
+    .safety-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+      gap: var(--space-5);
+    }
+    .safety-item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      padding: var(--space-6);
+      background: var(--color-surface);
+      border: 1px solid var(--color-divider);
+      border-radius: var(--radius-xl);
+      transition: border-color var(--transition-interactive), transform var(--transition-interactive);
+    }
+    .safety-item:hover { border-color: color-mix(in oklch, var(--color-success) 40%, transparent); transform: translateY(-2px); }
+    .safety-item__icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-lg);
+      background: color-mix(in oklch, var(--color-success) 15%, transparent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .safety-item__title {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      font-family: var(--font-display);
+    }
+    .safety-item__desc { font-size: var(--text-xs); color: var(--color-text-muted); line-height: 1.6; }
+
+    /* ─── USER CONTROL ───────────────────────────────── */
+    .control-steps {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    .control-step {
+      display: flex;
+      align-items: center;
+      gap: var(--space-5);
+      padding: var(--space-5) var(--space-6);
+      background: var(--color-surface);
+      border: 1px solid var(--color-divider);
+      border-radius: var(--radius-xl);
+      transition: border-color var(--transition-interactive), transform var(--transition-interactive);
+    }
+    .control-step:hover { border-color: color-mix(in oklch, var(--color-primary) 40%, transparent); transform: translateX(4px); }
+    .control-step__num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--text-sm);
+      font-weight: 700;
+      font-family: var(--font-display);
+      flex-shrink: 0;
+    }
+    .control-step__text strong {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      font-family: var(--font-display);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .control-step__text span { font-size: var(--text-xs); color: var(--color-text-muted); }
+
+    /* ─── CONTACT ────────────────────────────────────── */
+    .contact-card {
+      max-width: 640px;
+      margin-inline: auto;
+      text-align: center;
+    }
+    .contact-email-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-4) var(--space-8);
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      color: #fff;
+      font-size: var(--text-sm);
+      font-weight: 600;
+      border-radius: var(--radius-full);
+      margin-top: var(--space-6);
+      transition: transform var(--transition-interactive), box-shadow var(--transition-interactive), opacity var(--transition-interactive);
+      box-shadow: 0 4px 24px rgba(37,99,235,0.4);
+    }
+    .contact-email-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(37,99,235,0.6);
+      color: #fff;
+      opacity: 0.95;
+    }
+    .contact-email-btn:active { transform: translateY(0); }
+    .contact-note {
+      margin-top: var(--space-5);
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────── */
+    .footer {
+      position: relative;
+      border-top: 1px solid var(--color-divider);
+      padding-block: var(--space-10);
+      overflow: hidden;
+    }
+    .footer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent, rgba(37,99,235,0.04));
+      pointer-events: none;
+    }
+    .footer__inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+    }
+    .footer__brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: var(--text-sm);
+    }
+    .footer__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-5);
+    }
+    .footer__links a {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      transition: color var(--transition-interactive);
+    }
+    .footer__links a:hover { color: var(--color-cyan); }
+    .footer__copy {
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+      text-align: right;
+    }
+    .footer__copy span {
+      display: block;
+      color: var(--color-text-muted);
+    }
+
+    /* ─── DIVIDER ────────────────────────────────────── */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--color-divider) 30%, var(--color-divider) 70%, transparent);
+      margin-inline: auto;
+      max-width: var(--content-wide);
+    }
+
+    /* ─── NOTICE BANNER ──────────────────────────────── */
+    .notice-banner {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+      padding: var(--space-5) var(--space-6);
+      background: color-mix(in oklch, var(--color-warning) 12%, transparent);
+      border: 1px solid color-mix(in oklch, var(--color-warning) 35%, transparent);
+      border-radius: var(--radius-xl);
+      margin-bottom: var(--space-8);
+    }
+    .notice-banner svg { color: var(--color-warning); flex-shrink: 0; margin-top: 2px; }
+    .notice-banner p { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.6; max-width: none; }
+    .notice-banner strong { color: var(--color-text); }
+
+    /* ─── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 640px) {
+      .hero__meta { gap: var(--space-4); }
+      .footer__inner { flex-direction: column; align-items: flex-start; }
+      .footer__copy { text-align: left; }
+      .nav__updated { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ░ SKIP LINK -->
+<a href="#main-content" class="sr-only">Skip to content</a>
+
+<!-- ░░ NAV ░░ -->
+<nav class="nav" id="navbar" aria-label="Site navigation">
+  <div class="container--wide nav__inner">
+    <div class="nav__logo">
+      <!-- SVG Logo -->
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-label="Social Cleaner logo" role="img">
+        <rect width="32" height="32" rx="8" fill="url(#logoGrad)"/>
+        <path d="M22 10H14a2 2 0 0 0-2 2v1H10a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1h2a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2z" fill="white" fill-opacity="0.15"/>
+        <path d="M10 15h8v6a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1v-6z" fill="white" fill-opacity="0.9"/>
+        <path d="M12 13h8v2h-8z" fill="white" fill-opacity="0.6"/>
+        <rect x="13" y="17" width="4" height="1.5" rx="0.75" fill="url(#logoGrad)"/>
+        <rect x="13" y="19.5" width="2.5" height="1" rx="0.5" fill="url(#logoGrad)" fill-opacity="0.7"/>
+        <path d="M14 11h8v6a1 1 0 0 1-1 1h-7v-7z" fill="white" fill-opacity="0.12"/>
+        <circle cx="24" cy="9" r="4" fill="url(#accentGrad)"/>
+        <path d="M22.5 9l1 1 2-2" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <defs>
+          <linearGradient id="logoGrad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#2563EB"/>
+            <stop offset="1" stop-color="#8B5CF6"/>
+          </linearGradient>
+          <linearGradient id="accentGrad" x1="20" y1="5" x2="28" y2="13" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#06B6D4"/>
+            <stop offset="1" stop-color="#2563EB"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span>Social Cleaner</span>
+      <span class="nav__badge">Privacy Policy</span>
+    </div>
+    <div class="nav__updated">
+      <span>Last updated: May 2026</span>
+    </div>
+  </div>
+</nav>
+
+<!-- ░░ MAIN ░░ -->
+<main id="main-content">
+
+  <!-- ░░░ HERO ░░░ -->
+  <section class="hero" id="hero" aria-label="Hero">
+    <div class="hero__bg">
+      <div class="hero__grid-lines" aria-hidden="true"></div>
+      <div class="hero__orb hero__orb--blue" aria-hidden="true"></div>
+      <div class="hero__orb hero__orb--purple" aria-hidden="true"></div>
+      <div class="hero__orb hero__orb--cyan" aria-hidden="true"></div>
+    </div>
+
+    <div class="container">
+      <div class="reveal">
+        <div class="hero__icon-wrap" aria-hidden="true">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+            <path d="M22 8C14.268 8 8 14.268 8 22s6.268 14 14 14 14-6.268 14-14S29.732 8 22 8z" fill="url(#heroIconGrad)" fill-opacity="0.2"/>
+            <path d="M22 12c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10z" stroke="url(#heroIconGrad)" stroke-width="1.5"/>
+            <path d="M18 22l3 3 5-5" stroke="#06B6D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M22 8v3M22 33v3M8 22h3M33 22h3" stroke="url(#heroIconGrad)" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+            <defs>
+              <linearGradient id="heroIconGrad" x1="8" y1="8" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#2563EB"/>
+                <stop offset="1" stop-color="#8B5CF6"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="hero__eyebrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Social Cleaner · Android App
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <h1 class="hero__title">
+          Your Privacy<br>
+          <span class="gradient-text">Matters To Us</span>
+        </h1>
+      </div>
+
+      <div class="reveal reveal-delay-3">
+        <p class="hero__subtitle">
+          Social Cleaner is designed to help users manage media files safely and efficiently while fully respecting user privacy. We believe in complete transparency about how our app works.
+        </p>
+      </div>
+
+      <div class="reveal reveal-delay-4">
+        <div class="hero__meta">
+          <div class="hero__meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            Android App
+          </div>
+          <div class="hero__meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Updated May 2026
+          </div>
+          <div class="hero__meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Google Play Compliant
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░ ABOUT APP ░░░ -->
+  <section class="section" id="about" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="section__header reveal">
+        <div class="section-label">About the App</div>
+        <h2 class="section__title" id="about-heading">What Social Cleaner Does</h2>
+        <p class="section__desc">Social Cleaner is a powerful, privacy-first storage management tool that helps you keep your Android device clean and organized — without ever compromising your personal data.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-feature reveal reveal-delay-1">
+          <div class="about-feature__icon" style="background:color-mix(in oklch,#2563EB 20%,transparent)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M17 17l4 4M21 17l-4 4"/></svg>
+          </div>
+          <div class="about-feature__text">
+            <h3>WhatsApp Media Manager</h3>
+            <p>Browse, preview, and selectively delete WhatsApp photos, videos, audio, and documents directly from the app.</p>
+          </div>
+        </div>
+
+        <div class="about-feature reveal reveal-delay-2">
+          <div class="about-feature__icon" style="background:color-mix(in oklch,#8B5CF6 20%,transparent)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="about-feature__text">
+            <h3>Duplicate File Cleaner</h3>
+            <p>Smart scanning detects identical files across your storage so you can reclaim wasted space with confidence.</p>
+          </div>
+        </div>
+
+        <div class="about-feature reveal reveal-delay-1">
+          <div class="about-feature__icon" style="background:color-mix(in oklch,#06B6D4 20%,transparent)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <div class="about-feature__text">
+            <h3>Status Viewer &amp; Saver</h3>
+            <p>View and save WhatsApp statuses before they disappear — privately, without notifying the sender.</p>
+          </div>
+        </div>
+
+        <div class="about-feature reveal reveal-delay-2">
+          <div class="about-feature__icon" style="background:color-mix(in oklch,#10B981 20%,transparent)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+          </div>
+          <div class="about-feature__text">
+            <h3>Junk File Remover</h3>
+            <p>Identify and remove residual files, temporary caches, and leftover app data to keep your device running fast.</p>
+          </div>
+        </div>
+
+        <div class="about-feature reveal reveal-delay-1">
+          <div class="about-feature__icon" style="background:color-mix(in oklch,#F59E0B 20%,transparent)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="about-feature__text">
+            <h3>Smart Storage Organizer</h3>
+            <p>Gain a clear visual overview of how your storage is used and organize media into easy-to-manage categories.</p>
+          </div>
+        </div>
+
+        <div class="about-feature reveal reveal-delay-2">
+          <div class="about-feature__icon" style="background:color-mix(in oklch,#EF4444 20%,transparent)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="about-feature__text">
+            <h3>Privacy-First Design</h3>
+            <p>All operations happen entirely on your device. No files are uploaded, no personal data is collected or sold.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <!-- ░░░ PERMISSIONS ░░░ -->
+  <section class="section section--alt" id="permissions" aria-labelledby="perm-heading">
+    <div class="container">
+      <div class="section__header reveal">
+        <div class="section-label">Permissions</div>
+        <h2 class="section__title" id="perm-heading">Why We Request Permissions</h2>
+        <p class="section__desc">We only request permissions that are strictly necessary for the app to function. Below is a transparent breakdown of each permission and exactly what it is — and is not — used for.</p>
+      </div>
+
+      <div class="perm-grid">
+
+        <!-- ALL FILES ACCESS -->
+        <div class="perm-card perm-card--blue reveal reveal-delay-1">
+          <div class="perm-card__header">
+            <div class="perm-card__icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg>
+            </div>
+            <div>
+              <div class="perm-card__title">All Files Access</div>
+              <div class="perm-card__subtitle">MANAGE_EXTERNAL_STORAGE</div>
+            </div>
+          </div>
+          <div class="perm-card__body">
+            <p class="perm-card__desc">This permission enables Social Cleaner to scan and manage your device's storage — the core functionality of the app. Without it, the app cannot detect duplicate files, WhatsApp media, or junk files.</p>
+            <p style="font-size:var(--text-xs);font-weight:600;color:var(--color-text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:var(--space-3);">✅ This permission is used for:</p>
+            <ul class="perm-list perm-list--allow">
+              <li>Scanning media files on your device storage</li>
+              <li>Managing and organizing WhatsApp media</li>
+              <li>Detecting and removing duplicate files</li>
+              <li>Identifying and cleaning junk &amp; residual files</li>
+            </ul>
+            <div style="height:var(--space-4)"></div>
+            <p style="font-size:var(--text-xs);font-weight:600;color:var(--color-text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:var(--space-3);">❌ We will never:</p>
+            <ul class="perm-list perm-list--deny">
+              <li>Upload your personal documents or photos</li>
+              <li>Access private files beyond the app's stated purpose</li>
+              <li>Collect or transmit file content to external servers</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- INTERNET -->
+        <div class="perm-card perm-card--purple reveal reveal-delay-2">
+          <div class="perm-card__header">
+            <div class="perm-card__icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div>
+              <div class="perm-card__title">Internet Access</div>
+              <div class="perm-card__subtitle">INTERNET</div>
+            </div>
+          </div>
+          <div class="perm-card__body">
+            <p class="perm-card__desc">Internet access is required to load advertisements (which keep the app free), send anonymous usage analytics, and check for app updates. No personal file data is ever transmitted.</p>
+            <p style="font-size:var(--text-xs);font-weight:600;color:var(--color-text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:var(--space-3);">✅ Used strictly for:</p>
+            <ul class="perm-list perm-list--allow">
+              <li>Loading banner and rewarded advertisements</li>
+              <li>Anonymous crash reporting &amp; analytics</li>
+              <li>Fetching app configuration updates</li>
+            </ul>
+            <div style="height:var(--space-4)"></div>
+            <ul class="perm-list perm-list--deny">
+              <li>No personal files are transmitted over the internet</li>
+              <li>No user identity is linked to analytics</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ADS PERMISSION -->
+        <div class="perm-card perm-card--cyan reveal reveal-delay-3">
+          <div class="perm-card__header">
+            <div class="perm-card__icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div>
+              <div class="perm-card__title">Ad Network Access</div>
+              <div class="perm-card__subtitle">AD_ID · NETWORK_STATE</div>
+            </div>
+          </div>
+          <div class="perm-card__body">
+            <p class="perm-card__desc">Social Cleaner uses advertising SDKs (AdMob and AppLovin) to display ads that support the app's free availability. These SDKs may collect an anonymous advertising identifier for ad personalization.</p>
+            <p style="font-size:var(--text-xs);font-weight:600;color:var(--color-text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:var(--space-3);">✅ Ad types served:</p>
+            <ul class="perm-list perm-list--allow">
+              <li>Banner ads (non-intrusive display ads)</li>
+              <li>Rewarded video ads (optional, for user benefits)</li>
+              <li>Interstitial ads (shown between interactions)</li>
+            </ul>
+            <div style="height:var(--space-4)"></div>
+            <ul class="perm-list perm-list--deny">
+              <li>No sensitive personal data is used for ad targeting</li>
+              <li>Ad ID can be reset anytime in Android settings</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <!-- ░░░ ADS & SDK ░░░ -->
+  <section class="section" id="ads" aria-labelledby="ads-heading">
+    <div class="container">
+      <div class="section__header reveal">
+        <div class="section-label">Ads &amp; Third-Party SDKs</div>
+        <h2 class="section__title" id="ads-heading">Advertising Disclosure</h2>
+        <p class="section__desc">To keep Social Cleaner free for everyone, we partner with trusted advertising networks. We are fully transparent about what data these partners may collect and how it is used.</p>
+      </div>
+
+      <div class="notice-banner reveal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p><strong>Important disclosure:</strong> Third-party advertising SDKs integrated in this app may collect device identifiers (such as Android Advertising ID) and network information to serve relevant ads. This data is used solely for advertising purposes. We do not sell, trade, or share your personal data with any party outside of ad delivery.</p>
+      </div>
+
+      <div class="sdk-grid">
+        <div class="sdk-card reveal reveal-delay-1">
+          <div class="sdk-icon" style="background:color-mix(in oklch,#2563EB 20%,transparent)">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" fill="#2563EB" fill-opacity="0.15"/>
+              <path d="M7 12l3.5-6L14 12l-1.5 2.5H8.5L7 12z" fill="#2563EB" fill-opacity="0.8"/>
+              <path d="M14 12l2.5-4.5L19 12l-1.5 2.5h-2L14 12z" fill="#2563EB" fill-opacity="0.5"/>
+            </svg>
+          </div>
+          <div>
+            <div class="sdk-card__name">Google AdMob</div>
+            <div class="sdk-card__desc">Google's mobile advertising platform. May collect Advertising ID, IP address, and device info for ad personalization. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy →</a></div>
+          </div>
+        </div>
+
+        <div class="sdk-card reveal reveal-delay-2">
+          <div class="sdk-icon" style="background:color-mix(in oklch,#8B5CF6 20%,transparent)">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" fill="#8B5CF6" fill-opacity="0.15"/>
+              <path d="M6 17l4-10 4 10M8 13h4" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 8c1.5 0 3 1 3 3s-1.5 3-3 3" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="sdk-card__name">AppLovin MAX</div>
+            <div class="sdk-card__desc">AppLovin's ad mediation platform. May collect Advertising ID and usage data to optimize ad delivery. <a href="https://www.applovin.com/privacy/" target="_blank" rel="noopener noreferrer">AppLovin Privacy Policy →</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card glass-card--glow-blue reveal" style="margin-top:var(--space-8)">
+        <h3 style="font-size:var(--text-lg);font-family:var(--font-display);font-weight:600;margin-bottom:var(--space-4);">What Ad SDKs May Collect</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:var(--space-4);">
+          <div>
+            <p style="font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-text-muted);margin-bottom:var(--space-3);">May be collected</p>
+            <ul class="perm-list perm-list--allow">
+              <li>Android Advertising ID (resettable)</li>
+              <li>Device model &amp; OS version</li>
+              <li>App version &amp; interaction data</li>
+              <li>General location (country/region)</li>
+            </ul>
+          </div>
+          <div>
+            <p style="font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-text-muted);margin-bottom:var(--space-3);">Never collected</p>
+            <ul class="perm-list perm-list--deny">
+              <li>Personal files or documents</li>
+              <li>Contacts, messages, or call logs</li>
+              <li>Passwords or financial information</li>
+              <li>Precise GPS location</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <!-- ░░░ DATA SAFETY ░░░ -->
+  <section class="section section--alt" id="data-safety" aria-labelledby="safety-heading">
+    <div class="container">
+      <div class="section__header reveal">
+        <div class="section-label">Data Safety</div>
+        <h2 class="section__title" id="safety-heading">Your Data, Your Control</h2>
+        <p class="section__desc">Social Cleaner is built with a local-first, privacy-by-design philosophy. Your files never leave your device, and no personal data is collected, stored, or sold.</p>
+      </div>
+
+      <div class="safety-grid">
+        <div class="safety-item reveal reveal-delay-1">
+          <div class="safety-item__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <div class="safety-item__title">Files Stay On-Device</div>
+          <div class="safety-item__desc">All scanning, sorting, and deletion operations happen entirely on your device. Your files are never uploaded to any server.</div>
+        </div>
+
+        <div class="safety-item reveal reveal-delay-2">
+          <div class="safety-item__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+          </div>
+          <div class="safety-item__title">No Unauthorized Upload</div>
+          <div class="safety-item__desc">The app does not have functionality to upload your photos, videos, documents, or any other personal files to external servers.</div>
+        </div>
+
+        <div class="safety-item reveal reveal-delay-1">
+          <div class="safety-item__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div class="safety-item__title">No Data Selling</div>
+          <div class="safety-item__desc">We do not sell, rent, or trade any personal data to third parties, ever. Your data is yours, and we treat it that way.</div>
+        </div>
+
+        <div class="safety-item reveal reveal-delay-2">
+          <div class="safety-item__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          </div>
+          <div class="safety-item__title">Secure by Design</div>
+          <div class="safety-item__desc">The app only accesses storage-related media that is directly necessary for its stated cleaning and organizing functions.</div>
+        </div>
+
+        <div class="safety-item reveal reveal-delay-1">
+          <div class="safety-item__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="safety-item__title">User-Controlled Actions</div>
+          <div class="safety-item__desc">Every file deletion and cleanup action requires explicit approval from you. Nothing is removed automatically without your confirmation.</div>
+        </div>
+
+        <div class="safety-item reveal reveal-delay-2">
+          <div class="safety-item__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.95"/></svg>
+          </div>
+          <div class="safety-item__title">No Account Required</div>
+          <div class="safety-item__desc">Social Cleaner works completely without creating an account. We don't collect email addresses, names, or any identifying information.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <!-- ░░░ USER CONTROLS ░░░ -->
+  <section class="section" id="user-controls" aria-labelledby="controls-heading">
+    <div class="container" style="max-width:var(--content-narrow)">
+      <div class="section__header reveal">
+        <div class="section-label">User Controls</div>
+        <h2 class="section__title" id="controls-heading">You Are Always In Control</h2>
+        <p class="section__desc">Social Cleaner respects your autonomy. Here is exactly how you can manage, limit, or remove the app's access at any time.</p>
+      </div>
+
+      <div class="control-steps">
+        <div class="control-step reveal reveal-delay-1">
+          <div class="control-step__num">1</div>
+          <div class="control-step__text">
+            <strong>Revoke Permissions Anytime</strong>
+            <span>Go to Android Settings → Apps → Social Cleaner → Permissions. You can revoke any permission at any time without uninstalling the app.</span>
+          </div>
+        </div>
+        <div class="control-step reveal reveal-delay-2">
+          <div class="control-step__num">2</div>
+          <div class="control-step__text">
+            <strong>Control Media Cleanup Actions</strong>
+            <span>Every deletion in Social Cleaner requires your explicit confirmation. Scan results are shown first — you choose what to delete, one file or one batch at a time.</span>
+          </div>
+        </div>
+        <div class="control-step reveal reveal-delay-3">
+          <div class="control-step__num">3</div>
+          <div class="control-step__text">
+            <strong>Reset Your Advertising ID</strong>
+            <span>Go to Android Settings → Google → Ads → Reset advertising ID. This creates a new anonymous ID, disconnecting your history from future ad targeting.</span>
+          </div>
+        </div>
+        <div class="control-step reveal reveal-delay-4">
+          <div class="control-step__num">4</div>
+          <div class="control-step__text">
+            <strong>Opt Out of Personalized Ads</strong>
+            <span>Go to Android Settings → Google → Ads → Opt out of Ads Personalization. The app will still show ads, but they will not be personalized to your interests.</span>
+          </div>
+        </div>
+        <div class="control-step reveal">
+          <div class="control-step__num">5</div>
+          <div class="control-step__text">
+            <strong>Uninstall the App Completely</strong>
+            <span>You can uninstall Social Cleaner at any time from your device settings. Uninstalling removes all app data from your device immediately.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <!-- ░░░ CONTACT ░░░ -->
+  <section class="section section--alt" id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="contact-card glass-card glass-card--glow-purple reveal">
+        <div class="section-label" style="justify-content:center">Contact &amp; Support</div>
+        <h2 class="section__title" id="contact-heading" style="margin-bottom:var(--space-4)">Have a Question?</h2>
+        <p style="font-size:var(--text-base);color:var(--color-text-muted);max-width:52ch;margin-inline:auto;line-height:1.7;margin-bottom:var(--space-2);">
+          We take privacy seriously and are happy to answer any questions about this policy, how your data is used, or how to manage your permissions. We typically respond within 48 hours.
+        </p>
+
+        <a href="mailto:supportWhatsAppCleanerMediaManager@gmail.com" class="contact-email-btn" aria-label="Send email to supportWhatsAppCleanerMediaManager@gmail.com">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          supportWhatsAppCleanerMediaManager@gmail.com
+        </a>
+
+        <p class="contact-note">We typically respond within 48 hours.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ░░ FOOTER ░░ -->
+<footer class="footer" aria-label="Site footer">
+  <div class="container--wide footer__inner">
+    <div class="footer__brand">
+      <svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="url(#footerLogoGrad)"/>
+        <path d="M10 15h8v6a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1v-6z" fill="white" fill-opacity="0.9"/>
+        <path d="M12 13h8v2h-8z" fill="white" fill-opacity="0.6"/>
+        <rect x="13" y="17" width="4" height="1.5" rx="0.75" fill="url(#footerLogoGrad)"/>
+        <circle cx="24" cy="9" r="4" fill="#06B6D4"/>
+        <path d="M22.5 9l1 1 2-2" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <defs>
+          <linearGradient id="footerLogoGrad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#2563EB"/>
+            <stop offset="1" stop-color="#8B5CF6"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      Social Cleaner
+    </div>
+    <div class="footer__links">
+      <a href="#about">About</a>
+      <a href="#permissions">Permissions</a>
+      <a href="#ads">Ads &amp; SDKs</a>
+      <a href="#data-safety">Data Safety</a>
+      <a href="#user-controls">Your Controls</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer__copy">
+      <span>© 2026 Social Cleaner. All rights reserved.</span>
+      This policy is effective as of May 2026.
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  // ── Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
